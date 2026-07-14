@@ -436,12 +436,9 @@
         const rect = els.prizeCta.getBoundingClientRect();
         FX.ringPulse(rect.left + rect.width / 2, rect.top + rect.height / 2);
         FX.confettiBurst(12);
+        gsap.delayedCall(1.4, () => goTo('final', playFinal));
       };
       els.prizeCta.addEventListener('click', ctaHandler);
-
-      // The experience always completes on its own — the button is a
-      // moment of delight, not a required action.
-      gsap.delayedCall(4.6, () => goTo('final', playFinal));
     }
 
     /* ---- Screen: final ---- */
