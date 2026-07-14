@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<title>Happy Anniversary</title>
+<meta name="description" content="Una experiencia diseñada especialmente para ti.">
+<meta name="theme-color" content="#241333">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='23' font-size='22' text-anchor='middle'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<script>window.PRIZE_TYPE = "outfit";</script>
+
+<div class="vignette" aria-hidden="true"></div>
+<canvas id="fx-canvas" aria-hidden="true"></canvas>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="fx-layer" aria-hidden="true"></div>
+
+<button id="audio-toggle" class="audio-toggle" aria-label="Activar música">
+  <svg class="icon icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg>
+  <svg class="icon icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m23 9-6 6"/><path d="m17 9 6 6"/></svg>
+</button>
+
+<main id="app">
+
+  <section class="screen screen-hero active" data-screen="hero">
+    <div class="heart-mark">❤️</div>
+    <h1 class="hero-title">Happy Anniversary</h1>
+    <p class="hero-poem">A veces los mejores regalos<br>no se abren con las manos.<br>Se descubren.</p>
+    <p class="hero-sub">Una experiencia diseñada especialmente para ti.</p>
+    <button class="cta-btn" id="start-btn">Comenzar experiencia</button>
+  </section>
+
+  <section class="screen screen-verify" data-screen="verify">
+    <p class="eyebrow">Un momento</p>
+    <p class="verify-text">Verificando tu invitación...</p>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </section>
+
+  <section class="screen screen-vault" data-screen="vault">
+    <div class="vault-stage">
+      <div class="vault-light" aria-hidden="true"></div>
+      <div class="light-rays" aria-hidden="true"></div>
+      <div class="tube">
+        <div class="tube-cap top"></div>
+        <div class="tube-body">
+          <div class="tube-ring r1"></div>
+          <div class="tube-ring r2"></div>
+          <div class="tube-emblem">✦</div>
+        </div>
+        <div class="tube-cap bottom"></div>
+      </div>
+      <div class="blueprint"><span class="blueprint-mark">— tu regalo —</span></div>
+    </div>
+    <p class="vault-hint">Tu regalo está esperando.<br><b>Toca el porta-planos.</b></p>
+  </section>
+
+  <section class="screen screen-prize" data-screen="prize">
+    <div class="prize-emoji"></div>
+    <h2 class="prize-title"></h2>
+    <p class="prize-subtitle"></p>
+    <p class="prize-desc"></p>
+    <button class="prize-cta"></button>
+  </section>
+
+  <section class="screen screen-final" data-screen="final">
+    <div class="final-card">
+      <div class="final-eyebrow">Un último detalle...</div>
+      <p class="final-msg">No importa cuál regalo hayas descubierto.</p>
+      <p class="final-msg">El verdadero regalo siempre será seguir creando recuerdos contigo.</p>
+      <p class="final-msg">Gracias por hacer que cada momento a tu lado sea un lugar al que siempre quiero volver.</p>
+      <div class="final-heart">❤️</div>
+      <div class="final-sign">Con todo mi amor,<br>Brandon</div>
+      <div class="final-outro">— fin —</div>
+    </div>
+  </section>
+
+</main>
+
+<noscript>Esta experiencia necesita JavaScript habilitado para funcionar. Por favor actívalo en tu navegador.</noscript>
+
+<script src="../assets/vendor/gsap.min.js"></script>
+<script src="../assets/vendor/howler.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
