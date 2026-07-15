@@ -344,12 +344,12 @@
       gsap.set(els.progressFill, { width: '0%' });
 
       const tl = gsap.timeline({ onComplete: () => goTo('vault', playVaultDescend) });
-      tl.to(els.progressFill, { width: '38%', duration: 1.0, ease: 'power1.inOut' })
+      tl.to(els.progressFill, { width: '38%', duration: 2.0, ease: 'power1.inOut' })
         .call(() => { els.verifyText.textContent = messages[1]; })
-        .to(els.progressFill, { width: '72%', duration: 1.0, ease: 'power1.inOut' })
+        .to(els.progressFill, { width: '72%', duration: 2.0, ease: 'power1.inOut' })
         .call(() => { els.verifyText.textContent = messages[2]; })
-        .to(els.progressFill, { width: '100%', duration: 0.9, ease: 'power1.inOut' })
-        .to({}, { duration: 0.4 });
+        .to(els.progressFill, { width: '100%', duration: 1.8, ease: 'power1.inOut' })
+        .to({}, { duration: 0.8 });
     }
 
     /* ---- Screen: vault (descend -> ready -> open) ---- */
