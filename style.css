@@ -311,6 +311,8 @@ button{
   height:220px;
   transform-style: preserve-3d;
   will-change: transform;
+  opacity:0;
+  transform: translateY(-260px) rotate(-6deg);
 }
 
 .tube-body{
