@@ -384,7 +384,7 @@
 
       const tl = gsap.timeline({ onComplete: enableVaultTap });
       tl.to(els.vaultLight, { opacity: 1, duration: 0.8, ease: 'power2.out' })
-        .to(els.tube, { y: 0, opacity: 1, rotateZ: 0, duration: 1.6, ease: 'power3.out' }, '-=.4')
+        .to(els.tube, { y: 0, opacity: 1, rotateZ: 0, duration: 3.6, ease: 'power3.out' }, '-=.4')
         .to(els.vaultLight, { opacity: 0.4, duration: 0.6 }, '-=.3')
         .to(els.vaultHint, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=.2')
         .call(() => startTubeFloat());
