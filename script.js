@@ -403,6 +403,8 @@
         .to(els.blueprint, { rotateZ: -1.1, duration: 0.18, ease: 'sine.inOut' })
         .to(els.blueprint, { rotateZ: 0.6, duration: 0.18, ease: 'sine.inOut' })
         .to(els.blueprint, { rotateZ: 0, duration: 0.18, ease: 'sine.inOut' })
+        .to('.blueprint-scanline', { y: 386, duration: 0.9, ease: 'power1.inOut' }, '-=.05')
+        .to('.blueprint-dots span', { opacity: 1, duration: 0.25, stagger: 0.22 }, '-=.5')
         .to(els.lightRays, { opacity: 0, duration: 0.8, ease: 'power1.in' }, '-=.3')
         .to({}, { duration: 0.9 });
     }
@@ -447,11 +449,14 @@
       tl.from(els.finalCard, { opacity:0, y:26, scale:.96, duration:.9, ease:'power3.out' })
         .to('.final-eyebrow', { opacity:1, duration:.6, ease:'power2.out' }, '-=.3')
         .to($$('.final-msg'), { opacity:1, y:0, duration:.7, stagger:.25, ease:'power2.out' }, '-=.2')
-        .to('.final-heart', { opacity:1, scale:1.15, duration:.5, ease:'back.out(2)' }, '-=.1')
-        .to('.final-heart', { scale:1, duration:.3 })
         .to('.final-sign', { opacity:1, duration:.7, ease:'power2.out' }, '-=.2')
-        .to('.final-outro', { opacity:1, duration:.8, ease:'power2.out' }, '+=.6')
-        .call(() => { AudioManager.play('sparkle'); FX.confettiBurst(isLowPower ? 10 : 20); });
+        .to('.final-heart', { opacity:1, scale:1.15, duration:.5, ease:'back.out(2)' }, '+=.4')
+        .to('.final-heart', { scale:1, duration:.3 })
+        .call(() => {
+          AudioManager.play('sparkle');
+          FX.confettiBurst(isLowPower ? 10 : 20);
+          startHeartbeat();
+        });
 
       // Quiet Easter egg: tapping the finished card gently replays the
       // closing confetti — a small reward for lingering.
@@ -459,6 +464,16 @@
         FX.confettiBurst(10);
         vibrate(12);
       });
+    }
+
+    function startHeartbeat(){
+      if(prefersReducedMotion) return;
+      const heart = $('.final-heart');
+      gsap.timeline({ repeat: -1, repeatDelay: 0.55 })
+        .to(heart, { scale: 1.16, duration: 0.14, ease: 'power2.out' })
+        .to(heart, { scale: 1, duration: 0.18, ease: 'power2.in' })
+        .to(heart, { scale: 1.1, duration: 0.12, ease: 'power2.out' })
+        .to(heart, { scale: 1, duration: 0.22, ease: 'power2.in' });
     }
 
     function start(){
