@@ -200,13 +200,14 @@ button{
 
 .date-stamp{
   position:absolute;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: max(20px, env(safe-area-inset-bottom));
+  left: max(20px, env(safe-area-inset-left));
+  top: max(20px, env(safe-area-inset-top));
   writing-mode: vertical-rl;
-  font-size:10px;
-  letter-spacing:.3em;
+  font-size:13px;
+  letter-spacing:.32em;
   color: var(--gold);
-  opacity:.26;
+  opacity:.95;
+  text-shadow: 0 0 14px var(--gold-glow), 0 0 5px var(--gold-glow);
   pointer-events:none;
 }
 
