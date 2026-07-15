@@ -37,14 +37,20 @@
     }
   };
 
+  // outfit/index.html and mycar/index.html load this file from one directory
+  // deeper than index.html, so asset paths are resolved relative to this
+  // script's own URL rather than the page's — otherwise /outfit/ and /mycar/
+  // would request assets/sounds/* one level too shallow and 404.
+  const BASE_URL = document.currentScript.src.replace(/script\.js(?:[?#].*)?$/, '');
+
   const SFX_PATHS = {
-    click:    'assets/sounds/click.mp3',
-    unlock:   'assets/sounds/unlock.mp3',
-    scroll:   'assets/sounds/scroll.mp3',
-    sparkle:  'assets/sounds/sparkle.mp3',
-    confetti: 'assets/sounds/confetti.mp3'
+    click:    BASE_URL + 'assets/sounds/click.mp3',
+    unlock:   BASE_URL + 'assets/sounds/unlock.mp3',
+    scroll:   BASE_URL + 'assets/sounds/scroll.mp3',
+    sparkle:  BASE_URL + 'assets/sounds/sparkle.mp3',
+    confetti: BASE_URL + 'assets/sounds/confetti.mp3'
   };
-  const MUSIC_PATH = 'assets/sounds/music.mp3';
+  const MUSIC_PATH = BASE_URL + 'assets/sounds/music.mp3';
 
   /* ------------------------------------------------------------------ */
   /* 2. Utils                                                             */

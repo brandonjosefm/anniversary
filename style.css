@@ -413,6 +413,19 @@ button{
   border-radius:2px;
 }
 
+.blueprint-plan{
+  position:absolute;
+  inset:14px;
+  width:calc(100% - 28px);
+  height:calc(100% - 28px);
+  stroke:#ffffff;
+  stroke-opacity:.4;
+  stroke-width:5;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
 .blueprint-scanline{
   position:absolute;
   left:0; right:0;
@@ -432,6 +445,7 @@ button{
   opacity:.95;
   white-space:nowrap;
   letter-spacing:.02em;
+  text-shadow: 0 2px 14px rgba(6,20,32,.65), 0 0 3px rgba(6,20,32,.55);
 }
 
 .blueprint-dots span{
@@ -448,6 +462,7 @@ button{
   text-transform:uppercase;
   color: rgba(214,240,255,.4);
   white-space:nowrap;
+  text-shadow: 0 1px 6px rgba(6,20,32,.6);
 }
 
 /* ---------- screen 5 : prize ---------- */
