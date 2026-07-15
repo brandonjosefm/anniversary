@@ -422,7 +422,7 @@ button{
   width:100px;
   height:100px;
   flex-shrink:0;
-  fill:#ffffff;
+  object-fit:contain;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,.3));
 }
 
