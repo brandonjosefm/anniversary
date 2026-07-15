@@ -112,7 +112,22 @@
       try{
         music.play();
         if(enabled) music.fade(0, 0.22, 1200);
-      }catch(e){ /* playback blocked, fail silently */ }
+        // Some desktop browsers silently block this first attempt even
+        // inside a click handler (Howler's own autoplay-unlock can eat the
+        // gesture). If that happens, retry on the very next interaction
+        // anywhere on the page instead of leaving music stuck off.
+        music.once('playerror', () => {
+          started = false;
+          document.addEventListener('click', retry, { once: true });
+          document.addEventListener('touchstart', retry, { once: true });
+        });
+      }catch(e){ started = false; }
+    }
+
+    function retry(){
+      document.removeEventListener('click', retry);
+      document.removeEventListener('touchstart', retry);
+      start();
     }
 
     function toggle(){
@@ -338,18 +353,27 @@
       const messages = [
         'Verificando tu invitación...',
         'Preparando una sorpresa...',
-        'Buscando tu regalo...'
+        'Buscando tu regalo...',
+        'Esto te va a encantar...',
+        'Ya casi puedes descubrirlo...',
+        'Un regalo pensado solo para ti...'
       ];
       els.verifyText.textContent = messages[0];
       gsap.set(els.progressFill, { width: '0%' });
 
       const tl = gsap.timeline({ onComplete: () => goTo('vault', playVaultDescend) });
-      tl.to(els.progressFill, { width: '38%', duration: 2.0, ease: 'power1.inOut' })
+      tl.to(els.progressFill, { width: '16%', duration: 1.7, ease: 'power1.inOut' })
         .call(() => { els.verifyText.textContent = messages[1]; })
-        .to(els.progressFill, { width: '72%', duration: 2.0, ease: 'power1.inOut' })
+        .to(els.progressFill, { width: '32%', duration: 1.9, ease: 'power1.inOut' })
         .call(() => { els.verifyText.textContent = messages[2]; })
+        .to(els.progressFill, { width: '48%', duration: 2.0, ease: 'power1.inOut' })
+        .call(() => { els.verifyText.textContent = messages[3]; })
+        .to(els.progressFill, { width: '64%', duration: 1.9, ease: 'power1.inOut' })
+        .call(() => { els.verifyText.textContent = messages[4]; })
+        .to(els.progressFill, { width: '82%', duration: 1.8, ease: 'power1.inOut' })
+        .call(() => { els.verifyText.textContent = messages[5]; })
         .to(els.progressFill, { width: '100%', duration: 1.8, ease: 'power1.inOut' })
-        .to({}, { duration: 0.8 });
+        .to({}, { duration: 0.9 });
     }
 
     /* ---- Screen: vault (descend -> ready -> open) ---- */
