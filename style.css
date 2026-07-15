@@ -196,6 +196,20 @@ button{
   max-width:340px;
 }
 
+.hero-sub b{ color: var(--gold); font-weight:600; }
+
+.date-stamp{
+  position:absolute;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  writing-mode: vertical-rl;
+  font-size:10px;
+  letter-spacing:.3em;
+  color: var(--gold);
+  opacity:.26;
+  pointer-events:none;
+}
+
 .cta-btn{
   position:relative;
   margin-top:40px;
@@ -382,24 +396,70 @@ button{
   transform-origin: top center;
   border-radius:6px;
   background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 26px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 26px),
-    linear-gradient(160deg, #efe6d2, #e2d5b4 60%, #d8c9a2);
-  box-shadow: 0 30px 60px rgba(10,4,20,.5);
+    repeating-linear-gradient(0deg, rgba(214,240,255,.1) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(214,240,255,.1) 0 1px, transparent 1px 28px),
+    linear-gradient(160deg, #1c5177 0%, #123f60 55%, #0a2c47 100%);
+  box-shadow: 0 30px 60px rgba(10,4,20,.5), inset 0 0 0 1px rgba(214,240,255,.14);
   opacity:0;
   pointer-events:none;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+}
+
+.blueprint::before{
+  content:'';
+  position:absolute;
+  inset:14px;
+  border:1px dashed rgba(214,240,255,.28);
+  border-radius:2px;
+}
+
+.blueprint-plan{
+  width:100px;
+  height:100px;
+  flex-shrink:0;
+  object-fit:contain;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.3));
+}
+
+.blueprint-scanline{
+  position:absolute;
+  left:0; right:0;
+  top:-46px;
+  height:46px;
+  background: linear-gradient(180deg, transparent, rgba(214,240,255,.24), transparent);
 }
 
 .blueprint-mark{
-  position:absolute;
-  top:50%; left:50%;
-  transform: translate(-50%,-50%);
   font-family: var(--font-serif);
   font-style:italic;
-  font-size:15px;
-  color: #6b5636;
-  opacity:.8;
+  font-size:18px;
+  color: #eaf6ff;
+  opacity:.95;
   white-space:nowrap;
+  letter-spacing:.02em;
+  text-shadow: 0 2px 14px rgba(6,20,32,.65), 0 0 3px rgba(6,20,32,.55);
+}
+
+.blueprint-dots span{
+  display:inline-block;
+  opacity:0;
+}
+
+.blueprint-tag{
+  position:absolute;
+  left:20px;
+  bottom:16px;
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color: rgba(214,240,255,.4);
+  white-space:nowrap;
+  text-shadow: 0 1px 6px rgba(6,20,32,.6);
 }
 
 /* ---------- screen 5 : prize ---------- */
@@ -491,12 +551,6 @@ button{
 
 .final-msg + .final-msg{ margin-top:14px; }
 
-.final-heart{
-  margin-top:22px;
-  font-size:20px;
-  opacity:0;
-}
-
 .final-sign{
   margin-top:10px;
   font-family: var(--font-serif);
@@ -506,13 +560,11 @@ button{
   opacity:0;
 }
 
-.final-outro{
-  margin-top:46px;
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color: rgba(248,244,236,.35);
+.final-heart{
+  margin-top:38px;
+  font-size:26px;
   opacity:0;
+  filter: drop-shadow(0 0 14px var(--gold-glow));
 }
 
 /* ---------- confetti / bursts ---------- */
