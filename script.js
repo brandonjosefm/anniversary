@@ -19,14 +19,14 @@
       title: 'Outfit Shopping',
       subtitle: '"Hoy la arquitecta diseña...\npero esta vez diseñaremos tu próximo look."',
       desc: 'Este vale puede canjearse por una tarde completa de shopping. Tú elegirás el outfit que más te guste.',
-      cta: '❤️ Lo canjearé pronto'
+      cta: 'Lo canjearé pronto'
     },
     mycar: {
       emoji: '🚗',
       title: 'Pimp My Car',
       subtitle: '"Porque hasta las mejores obras necesitan un acabado perfecto."',
       desc: 'Este vale puede canjearse por un detailing premium para consentir tu carro.',
-      cta: '🚗 Lo quiero usar'
+      cta: 'Lo quiero usar'
     },
     default: {
       emoji: '✨',
